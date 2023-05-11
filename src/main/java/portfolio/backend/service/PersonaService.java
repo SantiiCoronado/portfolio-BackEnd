@@ -21,4 +21,9 @@ public class PersonaService implements IPersonaService{
     public void savePersona(Persona perso){
         persoRepository.save(perso);
     }
+    
+    @Override
+    public Persona findPersona(int id){
+        return persoRepository.findById(id);
+    }
 }

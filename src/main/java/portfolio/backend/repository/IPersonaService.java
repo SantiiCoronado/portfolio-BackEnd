@@ -6,4 +6,5 @@ import portfolio.backend.model.Persona;
 public interface IPersonaService {
     public List<Persona> getPersonas();
     public void savePersona(Persona perso);
+    public Persona findPersona(int id);
 }

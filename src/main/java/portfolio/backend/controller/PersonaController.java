@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.backend.model.Persona;
 import portfolio.backend.repository.IPersonaService;
@@ -24,5 +26,13 @@ public class PersonaController {
     public String savePersona(@RequestBody Persona perso){
         interPersona.savePersona(perso);
         return "Se creo correctamente a la persona";
+    }
+    
+    @PutMapping("/api/persona/editar")
+    public Persona editPersona(@RequestParam("sobreMi") String nuevoSobreMi){
+        Persona perso = interPersona.findPersona(1);
+        perso.setSobreMi(nuevoSobreMi);
+        interPersona.savePersona(perso);
+        return perso;
     }
 }

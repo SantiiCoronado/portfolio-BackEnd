@@ -13,11 +13,5 @@ public class Persona {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String telefono;
-    private String correo;
     private String sobreMi;
-    private String urlFoto;
 }

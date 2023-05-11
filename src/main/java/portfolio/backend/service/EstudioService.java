@@ -23,4 +23,14 @@ public class EstudioService implements IEstudioService{
         estuRepository.save(estu);
     }
     
+    @Override
+    public void deleteEstudio(Long id){
+        estuRepository.deleteById(id);
+    }
+    
+    @Override
+    public Estudio findEstudio(Long id){
+        Estudio estu = estuRepository.findById(id).orElse(null);
+        return estu;
+    }
 }
