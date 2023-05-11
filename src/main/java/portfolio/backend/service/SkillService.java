@@ -23,4 +23,14 @@ public class SkillService implements ISkillService{
         skillRepository.save(skill);
     }
     
+    @Override
+    public void deleteSkill(Long id){
+        skillRepository.deleteById(id);
+    }
+    
+    @Override
+    public Skill findSkill(Long id){
+        Skill skill = skillRepository.findById(id).orElse(null);
+        return skill;
+    }
 }
