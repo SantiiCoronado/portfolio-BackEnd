@@ -23,4 +23,15 @@ public class ExperienciaLaboralService implements IExperienciaLaboralService{
         expRepository.save(exp);
     }
     
+    @Override
+    public void deleteExperiencia(Long id){
+        expRepository.deleteById(id);
+    }
+    
+    @Override
+    public ExperienciaLaboral findExperiencia(Long id){
+        ExperienciaLaboral exp = expRepository.findById(id).orElse(null);
+        return exp;
+    }
+    
 }
