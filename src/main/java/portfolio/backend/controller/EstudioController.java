@@ -42,12 +42,14 @@ public class EstudioController {
                                @RequestParam("institucion") String nuevaInstitucion,
                                @RequestParam("titulo") String nuevoTitulo,
                                @RequestParam("fechaInicio") Date nuevaFechaIni,
-                               @RequestParam("fechaFin") Date nuevaFechaFin){
+                               @RequestParam(name = "fechaFin", required = false) Date nuevaFechaFin){
         Estudio estu = interEstudio.findEstudio(id);
+        
         estu.setInstitucion(nuevaInstitucion);
         estu.setTitulo(nuevoTitulo);
         estu.setFechaInicio(nuevaFechaIni);
         estu.setFechaFin(nuevaFechaFin);
+        
         interEstudio.saveEstudio(estu);
         return estu;               
     }

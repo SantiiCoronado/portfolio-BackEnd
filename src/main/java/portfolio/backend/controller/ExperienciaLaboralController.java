@@ -47,13 +47,16 @@ public class ExperienciaLaboralController {
                                               @RequestParam("empresa") String nuevaEmpresa,
                                               @RequestParam("descripcion") String nuevaDescripcion,
                                               @RequestParam("fechaInicio") Date nuevaFechaInicio,
-                                              @RequestParam("fechaFin") Date nuevaFechaFin){
+                                              @RequestParam(name = "fechaFin", required = false)Date nuevaFechaFin){
         
         ExperienciaLaboral exp = interExp.findExperiencia(id);
+        
         exp.setEmpresa(nuevaEmpresa);
         exp.setDescripcion(nuevaDescripcion);
         exp.setFechaInicio(nuevaFechaInicio);
         exp.setFechaFin(nuevaFechaFin);
+        
+        interExp.saveExperiencia(exp);
         return exp;
     }
     
