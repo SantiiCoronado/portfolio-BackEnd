@@ -22,4 +22,15 @@ public class ProyectoService implements IProyectoService{
     public void saveProyecto(Proyecto proy){
         proyRepository.save(proy);
     }
+    
+    @Override
+    public void deleteProyecto(Long id){
+        proyRepository.deleteById(id);
+    }
+    
+    @Override
+    public Proyecto findProyecto(Long id){
+        Proyecto proy = proyRepository.findById(id).orElse(null);
+        return proy;
+    }
 }
