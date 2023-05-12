@@ -26,6 +26,11 @@ public class SkillController {
         return interSkill.getSkills();
     }
     
+    @GetMapping("/api/skill/{id}")
+    public Skill getSkill(@PathVariable Long id){
+        return interSkill.findSkill(id);
+    }
+    
     @PostMapping("/api/skill/crear")
     public String saveSkill(@RequestBody Skill skill){
         interSkill.saveSkill(skill);

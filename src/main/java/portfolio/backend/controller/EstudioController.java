@@ -1,6 +1,5 @@
 package portfolio.backend.controller;
 
-import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.backend.model.Estudio;
 import portfolio.backend.repository.IEstudioService;
@@ -23,6 +21,11 @@ public class EstudioController {
     @GetMapping("/api/estudio")
     public List<Estudio> getEstudios(){
         return interEstudio.getEstudios();
+    }
+    
+    @GetMapping("/api/estudio/{id}")
+    public Estudio getEstudio(@PathVariable Long id){
+        return interEstudio.findEstudio(id);
     }
     
     @PostMapping("/api/estudio/crear")
@@ -39,16 +42,13 @@ public class EstudioController {
     
     @PutMapping("/api/estudio/editar/{id}")
     public Estudio editEstudio(@PathVariable Long id,
-                               @RequestParam("institucion") String nuevaInstitucion,
-                               @RequestParam("titulo") String nuevoTitulo,
-                               @RequestParam("fechaInicio") Date nuevaFechaIni,
-                               @RequestParam(name = "fechaFin", required = false) Date nuevaFechaFin){
+                               @RequestBody Estudio nuevoEstudio){
         Estudio estu = interEstudio.findEstudio(id);
         
-        estu.setInstitucion(nuevaInstitucion);
-        estu.setTitulo(nuevoTitulo);
-        estu.setFechaInicio(nuevaFechaIni);
-        estu.setFechaFin(nuevaFechaFin);
+        estu.setInstitucion(nuevoEstudio.getInstitucion());
+        estu.setTitulo(nuevoEstudio.getTitulo());
+        estu.setFechaInicio(nuevoEstudio.getFechaInicio());
+        estu.setFechaFin(nuevoEstudio.getFechaFin());
         
         interEstudio.saveEstudio(estu);
         return estu;               

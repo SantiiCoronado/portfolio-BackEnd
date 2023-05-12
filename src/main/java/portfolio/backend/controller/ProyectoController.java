@@ -25,6 +25,11 @@ public class ProyectoController {
         return interProyecto.getProyectos();
     }
     
+    @GetMapping("/api/proyecto/{id}")
+    public Proyecto getProyecto(@PathVariable Long id){
+        return interProyecto.findProyecto(id);
+    }
+    
     @PostMapping("/api/proyecto/crear")
     public String createProyecto(@RequestBody Proyecto proy){
         interProyecto.saveProyecto(proy);

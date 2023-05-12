@@ -30,6 +30,11 @@ public class ExperienciaLaboralController {
         return interExp.getExperiencia();
     }
     
+    @GetMapping("/api/experiencia/{id}")
+    public ExperienciaLaboral getExperiencia(@PathVariable Long id){
+        return interExp.findExperiencia(id);
+    }
+    
     @PostMapping("/api/experiencia/crear")
     public String createExperiencia (@RequestBody ExperienciaLaboral exp){
         interExp.saveExperiencia(exp);
