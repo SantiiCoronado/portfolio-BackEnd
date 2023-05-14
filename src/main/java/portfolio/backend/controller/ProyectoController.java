@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.backend.model.Proyecto;
 import portfolio.backend.repository.IProyectoService;
@@ -44,15 +43,13 @@ public class ProyectoController {
     
     @PutMapping("/api/proyecto/editar/{id}")
     public Proyecto editProyecto(@PathVariable Long id,
-                                 @RequestParam("nombre") String nuevoNombre,
-                                 @RequestParam("descripcion") String nuevaDescripcion,
-                                 @RequestParam("urlFoto") String nuevaUrlFoto){
+                                 @RequestBody Proyecto proyecto){
         
         Proyecto proy = interProyecto.findProyecto(id);
         
-        proy.setNombre(nuevoNombre);
-        proy.setDescripcion(nuevaDescripcion);
-        proy.setUrlFoto(nuevaUrlFoto);
+        proy.setNombre(proyecto.getNombre());
+        proy.setDescripcion(proyecto.getDescripcion());
+        proy.setUrlFoto(proyecto.getUrlFoto());
         
         interProyecto.saveProyecto(proy);
         return proy;

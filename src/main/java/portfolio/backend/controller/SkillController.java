@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.backend.model.Skill;
 import portfolio.backend.repository.ISkillService;
@@ -45,10 +44,10 @@ public class SkillController {
     
     @PutMapping("/api/skill/editar/{id}")
     public Skill editSkill(@PathVariable Long id,
-                           @RequestParam("skill") String nuevaSkill){
+                           @RequestBody Skill sk){
         Skill skill = interSkill.findSkill(id);
         
-        skill.setSkill(nuevaSkill);
+        skill.setSkill(sk.getSkill());
         
         interSkill.saveSkill(skill);
         return skill;

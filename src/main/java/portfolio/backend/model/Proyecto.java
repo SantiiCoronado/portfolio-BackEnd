@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity
 public class Proyecto {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String nombre;
     private String descripcion;

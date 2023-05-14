@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.backend.model.Persona;
 import portfolio.backend.repository.IPersonaService;
@@ -29,9 +28,9 @@ public class PersonaController {
     }
     
     @PutMapping("/api/persona/editar")
-    public Persona editPersona(@RequestParam("sobreMi") String nuevoSobreMi){
+    public Persona editPersona(@RequestBody Persona pers){
         Persona perso = interPersona.findPersona(1);
-        perso.setSobreMi(nuevoSobreMi);
+        perso.setSobreMi(pers.getSobreMi());
         interPersona.savePersona(perso);
         return perso;
     }

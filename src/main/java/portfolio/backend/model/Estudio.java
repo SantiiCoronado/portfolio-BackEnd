@@ -12,7 +12,7 @@ import lombok.Setter;
 @Entity
 public class Estudio {
     @Id
-    @GeneratedValue (strategy=GenerationType.SEQUENCE)
+    @GeneratedValue (strategy=GenerationType.IDENTITY)
     private Long id;
     private String institucion;
     private String titulo;
