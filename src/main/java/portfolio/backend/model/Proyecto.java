@@ -1,5 +1,6 @@
 package portfolio.backend.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class Proyecto {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    @Column(name="descripcion", length=500)
     private String descripcion;
     private String urlFoto;
 }
