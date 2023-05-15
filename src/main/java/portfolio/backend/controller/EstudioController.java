@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import portfolio.backend.model.Estudio;
 import portfolio.backend.repository.IEstudioService;
 
-@CrossOrigin (origins = "https://portfolio-frontend-santi.web.app")
+@CrossOrigin (origins = "https://portfolio-frontend-santi.firebaseapp.com/")
 @RestController
 public class EstudioController {
     @Autowired
