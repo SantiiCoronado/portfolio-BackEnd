@@ -14,7 +14,7 @@ import portfolio.backend.model.Skill;
 import portfolio.backend.repository.ISkillService;
 
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="https://portfolio-frontend-santi.web.app")
 @RestController
 public class SkillController {
     @Autowired
