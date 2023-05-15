@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import portfolio.backend.model.ExperienciaLaboral;
 import portfolio.backend.repository.IExperienciaLaboralService;
 
-@CrossOrigin (origins="https://portfolio-frontend-santi.web.app")
+@CrossOrigin (origins="https://portfolio-frontend-santi-cbdce.web.app")
 @RestController
 public class ExperienciaLaboralController {
     @Autowired

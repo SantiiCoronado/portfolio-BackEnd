@@ -12,8 +12,8 @@ public class CorsConfig {
         return new WebMvcConfigurer(){
             @Override
             public void addCorsMappings(CorsRegistry registry){
-                registry.addMapping("/login").allowedOrigins("https://portfolio-frontend-santi.web.app").allowedMethods("*").exposedHeaders("*");
-                registry.addMapping("/api/**").allowedOrigins("https://portfolio-frontend-santi.web.app").allowedMethods("*");
+                registry.addMapping("/login").allowedOrigins("https://portfolio-frontend-santi-cbdce.web.app").allowedMethods("*").exposedHeaders("*");
+                registry.addMapping("/api/**").allowedOrigins("https://portfolio-frontend-santi-cbdce.web.app").allowedMethods("*");
             }
         };
     }
