@@ -12,6 +12,7 @@ public class CorsConfig {
         return new WebMvcConfigurer(){
             @Override
             public void addCorsMappings(CorsRegistry registry){
+                registry.addMapping("/**");
                 registry.addMapping("/login").allowedOrigins("https://portfolio-frontend-santi.web.app").allowedMethods("*").exposedHeaders("*");
                 registry.addMapping("/api/**").allowedOrigins("https://portfolio-frontend-santi.web.app").allowedMethods("*");
             }
