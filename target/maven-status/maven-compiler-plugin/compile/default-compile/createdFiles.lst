@@ -16,7 +16,6 @@ portfolio\backend\model\Skill.class
 portfolio\backend\BackendApplication.class
 portfolio\backend\repository\IProyectoService.class
 portfolio\backend\security\UserDetailServiceImpl.class
-portfolio\backend\config\CorsConfig$1.class
 portfolio\backend\repository\IEstudioService.class
 portfolio\backend\security\TokenUtils.class
 portfolio\backend\repository\SkillRepository.class
